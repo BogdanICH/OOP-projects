@@ -28,10 +28,8 @@ public:
 class Mini: public Automobil
 {
 public:
-
     Mini(double l, string model, bool sta, int ani, int tipp, double prett);
     Mini();
-
 };
 
 class Mica: public Automobil
@@ -55,17 +53,7 @@ public:
     Monovolum();
     Monovolum(double l, string model, bool sta, int ani, int tipp, double prett);
 };
-// ---------------- template clasa VANZARE\
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-// -------------------------T E M P L A T E  ------  E D N ------------------------------
+// template clasa VANZARE
 template <class T>
 class Vanzare
 {
@@ -78,31 +66,31 @@ public:
     void findd(int tip, int luna)
     {
         int ok = 0;
-        for(int i = 0; i < inStoc; i++)
-            if(stoc[i]->getTip() == tip)
+        for (int i = 0; i < inStoc; i++)
+            if (stoc[i]->getTip() == tip)
             {
                 ok = 1;
-                if(luna == 1 || luna == 2 || luna == 3)
+                if (luna == 1 || luna == 2 || luna == 3)
                 {
-                if(tip == 4 && stoc[i]->getStare() == false)
+                if (tip == 4 && stoc[i]->getStare() == false)
                 {
                     cout<<"Felicitari! Ai achizitionat masina tip "<<stoc[i]->getTip()<<" la pretul de "<<stoc[i]->getPret() -  stoc[i]->getPret()/(10+stoc[i]->getAni())<<" euro.\n Pretul contine discount de vechime +"<<stoc[i]->getAni()<<" %\n";
                     cout<<"Informatii: \n - "<<stoc[i]->getAni()<<" ani vechime\n - Model: "<<stoc[i]->getForma()<<" \n - Lungime: "<<stoc[i]->getLungime()<<"m \n - Stare: "<<stoc[i]->getStare()<<" \n";
 
-                }else{
+                } else {
                     cout<<"Felicitari! Ai achizitionat masina tip "<<stoc[i]->getTip()<<" la pretul de "<<stoc[i]->getPret() -  stoc[i]->getPret()/10<<" euro.\n";
                     cout<<"Informatii: \n - "<<stoc[i]->getAni()<<" ani vechime\n - Model: "<<stoc[i]->getForma()<<" \n - Lungime: "<<stoc[i]->getLungime()<<"m \n - Stare: "<<stoc[i]->getStare()<<" \n";
                 }
-                }else
+                } else
                 {
-                    if(tip == 4 && stoc[i]->getStare() == false)
+                    if (tip == 4 && stoc[i]->getStare() == false)
                     {
                         cout<<"Felicitari! Ai achizitionat masina tip "<<stoc[i]->getTip()<<" la pretul de "<<stoc[i]->getPret() -  stoc[i]->getPret()/stoc[i]->getAni()<<" euro.\n Pretul contine discount de vechime +"<<stoc[i]->getAni()<<" %\n";
                         cout<<"Informatii: \n - "<<stoc[i]->getAni()<<" ani vechime\n - Model: "<<stoc[i]->getForma()<<" \n - Lungime: "<<stoc[i]->getLungime()<<"m \n - Stare: "<<stoc[i]->getStare()<<" \n";
 
-                    }else{
+                    } else {
                         cout<<"Felicitari! Ai achizitionat masina tip "<<stoc[i]->getTip()<<" la pretul de "<<stoc[i]->getPret()<<" euro.\n";
-                        cout<<"Informatii: \n - "<<stoc[i]->getAni()<<" ani vechime\n - Model: "<<stoc[i]->getForma()<<" \n - Lungime: "<<stoc[i]->getLungime()<<"m \n - Stare: "<<stoc[i]->getStare()<<" \n";
+                        cout<< "Informatii: \n - "<<stoc[i]->getAni()<<" ani vechime\n - Model: "<<stoc[i]->getForma()<<" \n - Lungime: "<<stoc[i]->getLungime()<<"m \n - Stare: "<<stoc[i]->getStare()<<" \n";
                     }
                 }
                 switch(tip)
@@ -122,23 +110,21 @@ public:
                 }
                 i = inStoc;
                 masiniVandute++;
-
             }
 
-        if(ok == 0)
-            cout<<"Nu avem masina pe stoc!";
+        if (ok == 0)
+            cout << "Nu avem masina pe stoc!";
     }
 
     void afisare()
     {
-        cout<<"Masini in stoc: \n";
-        for(int i = 0; i < inStoc; i++)
-            cout<<" - "<<stoc[i]->getForma()<<"\n";
+        cout << "Masini in stoc: \n";
+        for (int i = 0; i < inStoc; i++)
+            cout << " - " << stoc[i]->getForma() << "\n";
 
-        cout<<"Masini vandute: \n";
-        for(int i = 0; i < masiniVandute; i++)
-            cout<<" - "<<vandute[i]->getForma()<<"\n";
-
+        cout << "Masini vandute: \n";
+        for (int i = 0; i < masiniVandute; i++)
+            cout << " - " << vandute[i]->getForma() << "\n";
     }
 };
 template<class T>int Vanzare<T>::inStoc = 0;
@@ -149,64 +135,54 @@ class Vanzare<unsigned>{
 
 public:
 
-
 };
 
 // ------------------------------- M    A   I   N ---------------------------------------
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
     int menu, ok = 1;
     Vanzare <Automobil> a;
-    while(ok == 1)
+    while (ok == 1)
     {
-        cout<<"Meniu:\n 1. Adauga masina in stoc \n 2. Cumpara masina (Mini, Mica, Compacta) \n 3. Afisare \n Alege: ";
-        cin>>menu;
+        cout << "Meniu:\n 1. Adauga masina in stoc \n 2. Cumpara masina (Mini, Mica, Compacta) \n 3. Afisare \n Alege: ";
+        cin >> menu;
         switch(menu)
         {
             case 1: { a.add(); break;}
             case 2: { a-=a; break;}
             case 3: { a.afisare();}
         }
-        cout<<"\n Continui? (1/0)";
-        cin>>menu;
+        cout << "\n Continui? (1/0)";
+        cin >> menu;
     }
     Vanzare <unsigned> b;
     return 0;
 }
-// ---------   M    A   I   N -----------------------------------------------------------
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-
 
 //---------------- Mini  --------------------
-
     Mini::Mini()
     {
         double lu;
-        cout<<"Introduceti lungimea: ";
-        cin>>lu;
-        while(lu < 2 || lu >= 4)
+        cout << "Introduceti lungimea: ";
+        cin >> lu;
+        while (lu < 2 || lu >= 4)
         {
             try{throw 1;}
             catch(int x){
-                cout<<"Lungimea trebuie sa fie intre 2 - 3.99 \n";
-                cout<<"Introduceti din nou: ";
-                cin>>lu;}
+                cout << "Lungimea trebuie sa fie intre 2 - 3.99 \n";
+                cout << "Introduceti din nou: ";
+                cin >> lu;}
         }
         double euro;
-        cout<<"Pret: ";
-        cin>>euro;
-        while(euro < 1 || euro > 1000000)
+        cout << "Pret: ";
+        cin >> euro;
+        while (euro < 1 || euro > 1000000)
         {
             try{throw 1;}
             catch(int x)
             {
-                cout<<"Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
-                cin>>euro;
+                cout << "Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
+                cin >> euro;
             }
         }
         setPret(euro);
@@ -231,9 +207,9 @@ int main()
     Mica::Mica()
     {
         double lu;
-        cout<<"Introduceti lungimea: ";
-        cin>>lu;
-        while(lu < 3.85 || lu > 4.1)
+        cout << "Introduceti lungimea: ";
+        cin> > lu;
+        while (lu < 3.85 || lu > 4.1)
         {
             try{throw 1;}
             catch(int x){
@@ -242,15 +218,15 @@ int main()
                 cin>>lu;}
         }
         double euro;
-        cout<<"Pret: ";
-        cin>>euro;
-        while(euro < 1 || euro > 1000000)
+        cout << "Pret: ";
+        cin >> euro;
+        while (euro < 1 || euro > 1000000)
         {
             try{throw 1;}
             catch(int x)
             {
-                cout<<"Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
-                cin>>euro;
+                cout << "Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
+                cin >> euro;
             }
         }
         setPret(euro);
@@ -273,28 +249,28 @@ int main()
 Compacta::Compacta()
     {
         double lu;
-        cout<<"Introduceti lungimea: ";
-        cin>>lu;
-        while(lu < 4.2 || lu > 4.5)
+        cout << "Introduceti lungimea: ";
+        cin >> lu;
+        while (lu < 4.2 || lu > 4.5)
         {
             try{throw 1;}
             catch(int x){
-                cout<<"Lungimea trebuie sa fie intre 4.2 - 4.5 \n";
-                cout<<"Introduceti din nou: ";
-                cin>>lu;}
+                cout << "Lungimea trebuie sa fie intre 4.2 - 4.5 \n";
+                cout << "Introduceti din nou: ";
+                cin >> lu;}
         }
         setLungime(lu);
         int forma;
-        cout<<"Alege forma model: \n 1 - Hatchback \n 2 - Combi \n 3 - Sedan \n Optiune: ";
-        cin>>forma;
+        cout << "Alege forma model: \n 1 - Hatchback \n 2 - Combi \n 3 - Sedan \n Optiune: ";
+        cin >> forma;
 
-        while(forma!= 1 && forma!= 2 && forma != 3 )
+        while (forma!= 1 && forma!= 2 && forma != 3 )
         {
             try{throw 1;}
             catch(int x){
-                cout<<"Forma modelului trebuie sa fie una din cele trei (1, 2, 3)";
-                cout<<"Introduceti din nou: ";
-                cin>>forma;}
+                cout << "Forma modelului trebuie sa fie una din cele trei (1, 2, 3)";
+                cout << "Introduceti din nou: ";
+                cin >> forma;}
         }
         switch(forma)
         {
@@ -304,21 +280,20 @@ Compacta::Compacta()
         }
         setStare(true);
         double euro;
-        cout<<"Pret: ";
-        cin>>euro;
-        while(euro < 1 || euro > 1000000)
+        cout << "Pret: ";
+        cin >> euro;
+        while (euro < 1 || euro > 1000000)
         {
             try{throw 1;}
             catch(int x)
             {
-                cout<<"Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
-                cin>>euro;
+                cout << "Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
+                cin >> euro;
             }
         }
         setPret(euro);
         setAni(0);
         setTip(3);
-
     }
      Compacta::Compacta(double l, string model, bool sta, int ani, int tipp, double prett)
     {
@@ -330,22 +305,20 @@ Compacta::Compacta()
         setPret(prett);
     }
 
-
 //---------------- Monovolum  --------------------
-
 
 Monovolum::Monovolum()
 {
     int stare;
-    cout<<"Starea automobil: \n 1 - nou \n 2- second hand \n Optiune: ";
-    cin>>stare;
-    while(stare != 1 && stare != 2)
+    cout << "Starea automobil: \n 1 - nou \n 2- second hand \n Optiune: ";
+    cin >> stare;
+    while (stare != 1 && stare != 2)
     {
         try{throw 1;}
         catch(int x)
         {
-            cout<<"Starea automobilului trebuie sa fie NOU sau SECOND HAND \n Introduceti din nou: ";
-            cin>>stare;
+            cout << "Starea automobilului trebuie sa fie NOU sau SECOND HAND \n Introduceti din nou: ";
+            cin >> stare;
         }
     }
     switch(stare)
@@ -353,15 +326,15 @@ Monovolum::Monovolum()
         case 1: { setStare(true); setAni(0); break;}
         case 2: { setStare(false);
         int ani;
-        cout<<"Vechime masina(ani): ";
-        cin>>ani;
-        while(ani<1 || ani>200)
+        cout << "Vechime masina(ani): ";
+        cin >> ani;
+        while (ani<1 || ani>200)
         {
             try{throw 1;}
             catch(int x)
             {
-                cout<<"Vechimea masinii trebuie sa fie intre 1 si 200 \n Introduceti din nou: ";
-                cin>>ani;
+                cout << "Vechimea masinii trebuie sa fie intre 1 si 200 \n Introduceti din nou: ";
+                cin >> ani;
             }
         }
         setAni(ani);
@@ -369,22 +342,21 @@ Monovolum::Monovolum()
         }
     }
         double euro;
-        cout<<"Pret: ";
-        cin>>euro;
-        while(euro < 1 || euro > 1000000)
+        cout << "Pret: ";
+        cin >> euro;
+        while (euro < 1 || euro > 1000000)
         {
             try{throw 1;}
             catch(int x)
             {
-                cout<<"Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
-                cin>>euro;
+                cout << "Pretul trebuie sa fie intre 1 - 1000000 euro \n Introduceti din nou: ";
+                cin >> euro;
             }
         }
         setPret(euro);
     setLungime(6.00);
     setForma("Monovolum");
     setTip(4);
-
 }
 
  Monovolum::Monovolum(double l, string model, bool sta, int ani, int tipp, double prett)
@@ -403,11 +375,11 @@ void Vanzare<T>::add()
         int ad, optiune;
         cout<<"Cate masini adaugi? = ";
         cin>>ad;
-        for(int i = inStoc; i < (inStoc + ad); i++)
+        for (int i = inStoc; i < (inStoc + ad); i++)
         {
             cout<<"Ce adaugati? \n 1. Mini \n 2. Mica \n 3. Compacta \n 4. Monovolum \n Optiune: ";
             cin>>optiune;
-            while(optiune != 1 && optiune != 2 && optiune != 3 && optiune != 4)
+            while (optiune != 1 && optiune != 2 && optiune != 3 && optiune != 4)
             {
                 try{throw 1;}
                 catch(int x)
@@ -433,27 +405,26 @@ Vanzare<T> Vanzare<T>::operator-=(Vanzare& ob)
     int luna, cumpar;
     double pret;
     string raspuns;
-    cout<<"Vrei sa cumperi o masina? ";
-    cin>>raspuns;
-    while(raspuns != "da" && raspuns != "nu")
+    cout << "Vrei sa cumperi o masina? ";
+    cin >> raspuns;
+    while (raspuns != "da" && raspuns != "nu")
     {
-        cout<<"Poti raspunde doar cu da sau nu \n Introduceti din nou: ";
-        cin>>raspuns;
+        cout << "Poti raspunde doar cu da sau nu \n Introduceti din nou: ";
+        cin >> raspuns;
     }
-    if(raspuns == "da")
+    if (raspuns == "da")
     {
-        cout<<"Luna actuala: \n 1. Iunie \n 2. Iulie \n 3. August \n 4. Alta \n Optiune: ";
-        cin>>luna;
-        cout<<"Ce tip de masina vrei sa cumperi? \n 1. Mini \n 2. Mica \n 3. Compacta \n 4. Monovolum \n";
-        cin>>cumpar;
+        cout << "Luna actuala: \n 1. Iunie \n 2. Iulie \n 3. August \n 4. Alta \n Optiune: ";
+        cin >> luna;
+        cout << "Ce tip de masina vrei sa cumperi? \n 1. Mini \n 2. Mica \n 3. Compacta \n 4. Monovolum \n";
+        cin >> cumpar;
         if(luna == 1 || luna == 2 || luna == 3)
         {
-            cout<<"Pretul masinii va fi redus cu 10% deoarece cumperi intr-o luna de vara. \n";
+            cout << "Pretul masinii va fi redus cu 10% deoarece cumperi intr-o luna de vara. \n";
         }
         findd(cumpar, luna);
         inStoc--;
-    }else{cout<<"Ne pare rau! Te asteptam alta data.";}
-
+    } else {cout<<"Ne pare rau! Te asteptam alta data.";}
 
      return *this;
 }
