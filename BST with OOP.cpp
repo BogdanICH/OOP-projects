@@ -8,7 +8,6 @@ public:
     Arbore(int nrNoduri);
     int getN();
     virtual ~Arbore() = 0;
-
 };
 
 class Nod
@@ -44,7 +43,6 @@ int main()
     ABC A(nrNoduri, radacina);
     cin>>A;
     cout<<A;
-
 }
 //////////////////////////////////////////
 //             Clasa Arbore
@@ -55,13 +53,11 @@ int Arbore::getN(){return N;}
 
 //////////////////////////////////////////
 //             Clasa Nod
-
 Nod::Nod (int x){data = x; left = right = NULL;}
 
 
 //////////////////////////////////////////
 //             Clasa ABC
-
 istream &operator>>(istream &i, ABC &ob)
 {
     ob.creaza();
@@ -77,11 +73,9 @@ ostream &operator<<(ostream &o, ABC &ob)
     return o;
 }
 
-
 bool ABC::cauta(int x){return cauta(x, root);}
 bool ABC::cauta(int x, Nod *root)
 {
-
     if (root == NULL)
     {
         cout<<"Nu";
@@ -97,7 +91,6 @@ bool ABC::cauta(int x, Nod *root)
         return cauta(x, root->right);
 
     return cauta(x, root->left);
-
 }
 void ABC::creaza()
 {
