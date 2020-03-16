@@ -1,4 +1,4 @@
-/// Proiect PP - criptare si decriptare imagine bmp
+/// Proiect criptare/decriptare imagine bmp
 
 #include <stdio.h>
 #include <stdlib.h>
